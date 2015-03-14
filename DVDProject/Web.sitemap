@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/" title="Root" description="Root">
+    <siteMapNode url="~/Home.aspx" title="Home"
+        description="DVDProject Home" />
+    <siteMapNode url="~/CustomerReport.aspx" title="Customer Reports"
+        description="DVDProject Customer Reports" />
+    <siteMapNode url="~/AdminTools.aspx" title="Admin Tools"
+        description="DVDProject Admin Tools" />
+  </siteMapNode>
+</siteMap>
+

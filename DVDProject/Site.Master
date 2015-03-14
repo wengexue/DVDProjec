@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="DVDProject.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="~/DVDProject.css" rel="stylesheet" type="text/css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <!-- Header -->
+        <div class="Header">
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/header.jpg" Width="450" Height="174" AlternateText="The Official Wen Wen's DVD emporium Intranet" />
+        </div>
+
+        <!-- Menu -->
+        <div class="Menu">
+            <asp:SiteMapDataSource ID="dvdprojectSiteMap" runat="server" ShowStartingNode="false" />
+            <asp:Menu ID="dvdprojectMenu" runat="server" DataSourceID="dvdprojectSiteMap">
+                <StaticItemTemplate>
+                    <img src="Images/bullet.jpg" alt="+" width="16" height="16" style="border-width: 0;" />
+                    <%# Eval("Text") %>
+                </StaticItemTemplate>
+            </asp:Menu>  
+            <br />
+            <asp:Button ID="btnLogout" Text="Logout" runat="server" OnClick="btnLogout_Click" />          
+        </div>
+
+        <!-- Content -->
+        <div class="Content">
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

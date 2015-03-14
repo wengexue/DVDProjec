@@ -1,0 +1,42 @@
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\DVDProject.dll.config
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\DVDProject.dll
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\DVDProject.pdb
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\Antlr3.Runtime.dll
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\AspNet.ScriptManager.bootstrap.dll
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\Newtonsoft.Json.dll
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\System.Web.Optimization.dll
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\WebGrease.dll
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\System.Web.Optimization.xml
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\Antlr3.Runtime.pdb
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\Newtonsoft.Json.xml
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\obj\Debug\DVDProject.csprojResolveAssemblyReference.cache
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\obj\Debug\DVDProject.dll
+C:\Users\xuewenwen\Documents\Visual Studio 2013\Projects\DVDProject\DVDProject\obj\Debug\DVDProject.pdb
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\DVDProject.dll.config
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\DVDProject.dll
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\DVDProject.pdb
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\Antlr3.Runtime.dll
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\AspNet.ScriptManager.bootstrap.dll
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\Newtonsoft.Json.dll
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\System.Web.Optimization.dll
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\WebGrease.dll
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\System.Web.Optimization.xml
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\Antlr3.Runtime.pdb
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\Newtonsoft.Json.xml
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\obj\Debug\DVDProject.csprojResolveAssemblyReference.cache
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\obj\Debug\DVDProject.dll
+C:\Users\wenge.xue\Desktop\DVDProject\DVDProject\obj\Debug\DVDProject.pdb

@@ -1,0 +1,142 @@
+USE Dvd117
+GO
+
+/****** Object:  Table [dbo].[Customer]    Script Date: 2/16/2015 11:26:18 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Customer](
+	[customerId] [int] IDENTITY(1,1) NOT NULL,
+	[customerName] [nvarchar](128) NOT NULL,
+	[email] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED 
+(
+	[customerId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+CREATE TABLE [dbo].[DVD](
+	[DVDId] [int] IDENTITY(1,1) NOT NULL,
+	[title] [nvarchar](128) NOT NULL,
+	[primaryArtist] [nvarchar](128) NOT NULL,
+	[price] [money] NOT NULL,
+	[CaraRating] [nvarchar](5) NOT NULL,
+	[ImdbRating] [int] NOT NULL,
+	[releaseDate] [date] NOT NULL,
+	[quantityInStock] [int] NOT NULL,
+	[coverImageUrl] [nvarchar](256) NULL,
+ CONSTRAINT [PK_DVD] PRIMARY KEY CLUSTERED 
+(
+	[DVDId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+CREATE TABLE [dbo].[DVDPurchase](
+	[DVDId] [int] NOT NULL,
+	[customerId] [int] NOT NULL,
+	[purchaseDate] [datetime] NOT NULL,
+ CONSTRAINT [PK_DVDPurchase] PRIMARY KEY CLUSTERED 
+(
+	[DVDId] ASC,
+	[customerId] ASC,
+	[purchaseDate] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[DVDPurchase]  WITH CHECK ADD  CONSTRAINT [FK_DVDPurchase_Customer] FOREIGN KEY([customerId])
+REFERENCES [dbo].[Customer] ([customerId])
+GO
+
+ALTER TABLE [dbo].[DVDPurchase] CHECK CONSTRAINT [FK_DVDPurchase_Customer]
+GO
+
+ALTER TABLE [dbo].[DVDPurchase]  WITH CHECK ADD  CONSTRAINT [FK_DVDPurchase_DVD] FOREIGN KEY([DVDId])
+REFERENCES [dbo].[DVD] ([DVDId])
+GO
+
+ALTER TABLE [dbo].[DVDPurchase] CHECK CONSTRAINT [FK_DVDPurchase_DVD]
+GO
+
+CREATE PROCEDURE spPurchaseDvd
+	@DVDID int,
+	@CustomerName nvarchar(128),
+	@CustomerEmail nvarchar(50) 
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	DECLARE @CustomerId int;
+
+	SELECT @CustomerId = customerId FROM Customer WHERE customerName = @CustomerName;
+	IF @CustomerId IS NOT NULL AND @CustomerId > 0
+	BEGIN
+		UPDATE Customer SET email = @CustomerEmail WHERE customerId = @CustomerId;
+	END
+	ELSE
+	BEGIN
+		INSERT INTO Customer (customerName, email) VALUES (@CustomerName, @CustomerEmail);
+		SELECT @CustomerId = SCOPE_IDENTITY();
+	END
+	
+	INSERT INTO DVDPurchase ([DVDId],[customerId],[purchaseDate]) VALUES(@DVDID,@CustomerId,GETDATE());
+
+END
+GO
+
+
+
+SET IDENTITY_INSERT DVD ON
+GO
+INSERT INTO DVD (DVDId,title,primaryArtist,price,CaraRating,ImdbRating,releaseDate,quantityInStock,coverImageUrl) VALUES (1,'John Wick','Keanu Reeves',18.99,'R',7,'2014-09-24',38,'http://ia.media-imdb.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_SX214_AL_.jpg');
+INSERT INTO DVD (DVDId,title,primaryArtist,price,CaraRating,ImdbRating,releaseDate,quantityInStock,coverImageUrl) VALUES (2,'Gone Girl','Ben Affleck',14.99,'R',8,'2914-09-03',21,'http://ia.media-imdb.com/images/M/MV5BMTk0MDQ3MzAzOV5BMl5BanBnXkFtZTgwNzU1NzE3MjE@._V1_SY317_CR0,0,214,317_AL_.jpg');
+INSERT INTO DVD (DVDId,title,primaryArtist,price,CaraRating,ImdbRating,releaseDate,quantityInStock,coverImageUrl) VALUES (3,'Lucy','Scarlett Johansson',18.99,'R',6,'2014-07-25',18,'http://ia.media-imdb.com/images/M/MV5BODcxMzY3ODY1NF5BMl5BanBnXkFtZTgwNzg1NDY4MTE@._V1_SX214_AL_.jpg');
+INSERT INTO DVD (DVDId,title,primaryArtist,price,CaraRating,ImdbRating,releaseDate,quantityInStock,coverImageUrl) VALUES (4,'Dawn of the Planet of the Apes','Gary Oldman',16.99,'R',7,'2014-07-11',52,'http://ia.media-imdb.com/images/M/MV5BMTgwODk3NDc1N15BMl5BanBnXkFtZTgwNTc1NjQwMjE@._V1_SX214_AL_.jpg');
+INSERT INTO DVD (DVDId,title,primaryArtist,price,CaraRating,ImdbRating,releaseDate,quantityInStock,coverImageUrl) VALUES (5,'Planes: Fire & Rescue','Dane Cook',21.99,'PG',6,'2014-07-18',14,'http://ia.media-imdb.com/images/M/MV5BMTcwMjY4NDM4OF5BMl5BanBnXkFtZTgwMDIxNDU2MTE@._V1_SY317_CR0,0,214,317_AL_.jpg');
+INSERT INTO DVD (DVDId,title,primaryArtist,price,CaraRating,ImdbRating,releaseDate,quantityInStock,coverImageUrl) VALUES (6,'Tammy','Melissa McCarthy',17.99,'R',5,'2014-07-02',8,'http://ia.media-imdb.com/images/M/MV5BMjIyMDg1ODM5OV5BMl5BanBnXkFtZTgwMTM4NzgxMTE@._V1._CR3,3,863,1275_SY317_CR0,0,214,317_AL_.jpg');
+INSERT INTO DVD (DVDId,title,primaryArtist,price,CaraRating,ImdbRating,releaseDate,quantityInStock,coverImageUrl) VALUES (7,'Paddington','Hugh Bonneville',14.99,'PG',8,'2015-01-26',0,'http://ia.media-imdb.com/images/M/MV5BMTAxOTMwOTkwNDZeQTJeQWpwZ15BbWU4MDEyMTI1NjMx._V1_SY317_CR0,0,214,317_AL_.jpg');
+GO
+
+SET IDENTITY_INSERT DVD OFF
+GO
+
+SET IDENTITY_INSERT Customer ON
+GO
+
+INSERT INTO Customer (customerId, customerName, email) VALUES (1,'Scott','scott@prog117.net');
+INSERT INTO Customer (customerId, customerName, email) VALUES (2,'Tom','tom@prog117.net');
+INSERT INTO Customer (customerId, customerName, email) VALUES (3,'Bill','bill@prog117.net');
+INSERT INTO Customer (customerId, customerName, email) VALUES (4,'Edward','ed@prog117.net');
+GO
+
+SET IDENTITY_INSERT Customer OFF
+GO
+
+INSERT INTO DVDPurchase (DVDId,customerId,purchaseDate) VALUES (1,1,'2015-01-03');
+INSERT INTO DVDPurchase (DVDId,customerId,purchaseDate) VALUES (2,1,'2015-01-04');
+INSERT INTO DVDPurchase (DVDId,customerId,purchaseDate) VALUES (3,1,'2015-01-05');
+INSERT INTO DVDPurchase (DVDId,customerId,purchaseDate) VALUES (5,1,'2015-01-13');
+INSERT INTO DVDPurchase (DVDId,customerId,purchaseDate) VALUES (6,1,'2015-01-23');
+INSERT INTO DVDPurchase (DVDId,customerId,purchaseDate) VALUES (1,2,'2015-01-06');
+INSERT INTO DVDPurchase (DVDId,customerId,purchaseDate) VALUES (4,2,'2015-01-07');
+INSERT INTO DVDPurchase (DVDId,customerId,purchaseDate) VALUES (5,2,'2015-01-15');
+INSERT INTO DVDPurchase (DVDId,customerId,purchaseDate) VALUES (6,2,'2015-01-23');
+INSERT INTO DVDPurchase (DVDId,customerId,purchaseDate) VALUES (7,2,'2015-01-23');
+INSERT INTO DVDPurchase (DVDId,customerId,purchaseDate) VALUES (1,3,'2015-01-26');
+INSERT INTO DVDPurchase (DVDId,customerId,purchaseDate) VALUES (2,3,'2015-01-29');
+INSERT INTO DVDPurchase (DVDId,customerId,purchaseDate) VALUES (6,3,'2015-02-01');
+INSERT INTO DVDPurchase (DVDId,customerId,purchaseDate) VALUES (7,3,'2015-02-02');
+INSERT INTO DVDPurchase (DVDId,customerId,purchaseDate) VALUES (5,4,'2015-02-11');
+GO
